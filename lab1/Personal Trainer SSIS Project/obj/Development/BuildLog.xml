@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>Personal Trainer SSIS Project</Name>
+    <LastWriteTime>2020-03-29T21:42:33.2012236Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+    <Salt>eyhL0rpB</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9d43ypuyLUG4NSkAqAZ12gAAAAACAAAAAAAQZgAAAAEAACAAAACUeLivOCA46Mlj4zrcoe+MnWSD9m30fxdLhzaxnw9WsQAAAAAOgAAAAAIAACAAAADdUQcoxNszdkAzPbayIyixvU8oGOxcnks4iqS8XiDeZjAAAACysK0gulXdy+XmypXm29TTqEzz7qD9GvHIXUe1PB+tdAapoaC1ror6Q+7+PfC9WTdAAAAALkq/ylkZ3HPbwC86G5pgtMayzo65HmPcHjIot+4ja5znr81vWWmPIACdaxauNsMjxAl+K9YFRz8GBc3HHoDDGg==</LastKnownProtectedHashedPassword>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>lesson1.dtsx</Name>
+      <LastWriteTime>2020-03-29T21:44:18.7317348Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+      <Salt>zONIcUYt</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9d43ypuyLUG4NSkAqAZ12gAAAAACAAAAAAAQZgAAAAEAACAAAADgrcWDmpvs7iOMRSQINnfXo0EQ0H6NVi4PzFDLwQVz4wAAAAAOgAAAAAIAACAAAADJ8kKzpc7iiYqpqFztfLoaf+6Tamp7hO/bJRsw0AZ56jAAAADvH1Rny5VkYWyiLRZuH1GXfTd5NCd1k7XzsxtPTGeeEUAtVRXFrK/cxGpYIg5P+1JAAAAAJVxISKCavHY3Ob2WKfAy+yfBIIqjwAVYL1FCStzfNhiqQuAGCLC9zHxTBeGYcsADPC7+VkZv2mVo2zqwp8fBWA==</LastKnownProtectedHashedPassword>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>
