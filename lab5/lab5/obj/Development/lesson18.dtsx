@@ -1,0 +1,1287 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2020 7:11:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-70FAUT8"
+  DTS:CreatorName="DESKTOP-70FAUT8\Studia"
+  DTS:DTSID="{1DB09DC5-72A6-43DE-8231-2F846AFE847C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{2D8D632B-15B6-4309-BADB-76CE5249CD59}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-70FAUT8.AdventureWorks2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{473D7352-04FE-46E8-905C-F542B7129896}"
+      DTS:ObjectName="DESKTOP-70FAUT8.AdventureWorks2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-70FAUT8;Initial Catalog=AdventureWorks2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{823243EB-AC1B-43DF-AF56-80784D5EE798}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Z:\lab5\Inventory Worksheet.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Extract]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EEFE1A75-9AA2-4F79-A066-A71961C0A5A5}"
+      DTS:ObjectName="Flat File Extract">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1045"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1250"
+          DTS:ConnectionString="Z:\lab5\EmployeeList.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmpID"
+              DTS:DTSID="{720BC4AC-6507-4490-930E-78A872D1EB3C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{2EE82095-6B4C-4E9E-B6C9-A362B1667F3F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SickDays"
+              DTS:DTSID="{B91F8416-2B61-4C46-BF20-DAAE264FFA1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VacationDays"
+              DTS:DTSID="{24EBF886-31AE-4541-BFE8-51943700E12C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Excel Extract"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DBCB6175-8C98-48A5-952C-5AB91DA25C32}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Excel Extract"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Excel Extract\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Inventory_Worksheet</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Excel Extract\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[ProductID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[LocationID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[LocationID]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[LocationID]"
+                      name="LocationID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Shelf]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[Shelf]"
+                      length="255"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Shelf]"
+                      name="Shelf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Bin]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[Bin]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Bin]"
+                      name="Bin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[PhysicalCount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[PhysicalCount]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[PhysicalCount]"
+                      name="PhysicalCount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[ProductID]"
+                      dataType="r8"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[LocationID]"
+                      dataType="r8"
+                      name="LocationID" />
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[Shelf]"
+                      dataType="wstr"
+                      length="255"
+                      name="Shelf" />
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[Bin]"
+                      dataType="r8"
+                      name="Bin" />
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].ExternalColumns[PhysicalCount]"
+                      dataType="r8"
+                      name="PhysicalCount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[ProductID]"
+                      dataType="r8"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[LocationID]"
+                      dataType="r8"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[LocationID]"
+                      name="LocationID" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[Shelf]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[Shelf]"
+                      name="Shelf" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[Bin]"
+                      dataType="r8"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[Bin]"
+                      name="Bin" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[PhysicalCount]"
+                      dataType="r8"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[PhysicalCount]"
+                      name="PhysicalCount" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Excel Extract\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Excel Extract\Union All.Inputs[Union All Input 1]"
+                  hasSideEffects="true"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[ProductID]"
+                      cachedDataType="r8"
+                      cachedName="ProductID"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[ProductID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[LocationID]"
+                      cachedDataType="r8"
+                      cachedName="LocationID"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[LocationID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[LocationID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[Shelf]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Shelf"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Shelf]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Shelf]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[Bin]"
+                      cachedDataType="r8"
+                      cachedName="Bin"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Bin]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Bin]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[PhysicalCount]"
+                      cachedDataType="r8"
+                      cachedName="PhysicalCount"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[PhysicalCount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[PhysicalCount]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Excel Extract\Union All.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Excel Extract\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]"
+                      dataType="r8"
+                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[LocationID]"
+                      dataType="r8"
+                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[LocationID]"
+                      name="LocationID" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Shelf]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Shelf]"
+                      name="Shelf" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Bin]"
+                      dataType="r8"
+                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Bin]"
+                      name="Bin" />
+                    <outputColumn
+                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[PhysicalCount]"
+                      dataType="r8"
+                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[PhysicalCount]"
+                      name="PhysicalCount" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Excel Extract.Paths[Excel Source Output]"
+              endId="Package\Excel Extract\Union All.Inputs[Union All Input 1]"
+              name="Excel Source Output"
+              startId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Flat File Extract"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B404FAAE-A4E5-47E4-99EB-DB540FD0F375}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Flat File Extract"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Flat File Extract\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1045"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flat File Extract\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Extract]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Extract]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[EmpID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmpID]"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[EmpID]"
+                      name="EmpID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[SickDays]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SickDays]"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[SickDays]"
+                      name="SickDays"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[VacationDays]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VacationDays]"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[VacationDays]"
+                      name="VacationDays"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmpID]"
+                      dataType="i4"
+                      name="EmpID" />
+                    <externalMetadataColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SickDays]"
+                      dataType="i4"
+                      name="SickDays" />
+                    <externalMetadataColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VacationDays]"
+                      dataType="i4"
+                      name="VacationDays" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1250"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Flat File Extract\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Flat File Extract\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Flat File Extract\Union All.Inputs[Union All Input 1].Columns[EmpID]"
+                      cachedDataType="i4"
+                      cachedName="EmpID"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[EmpID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[EmpID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Flat File Extract\Union All.Inputs[Union All Input 1].Columns[Name]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Flat File Extract\Union All.Inputs[Union All Input 1].Columns[SickDays]"
+                      cachedDataType="i4"
+                      cachedName="SickDays"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[SickDays]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[SickDays]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Flat File Extract\Union All.Inputs[Union All Input 1].Columns[VacationDays]"
+                      cachedDataType="i4"
+                      cachedName="VacationDays"
+                      lineageId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output].Columns[VacationDays]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[VacationDays]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Flat File Extract\Union All.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Flat File Extract\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[EmpID]"
+                      dataType="i4"
+                      lineageId="Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[EmpID]"
+                      name="EmpID" />
+                    <outputColumn
+                      refId="Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[Name]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[SickDays]"
+                      dataType="i4"
+                      lineageId="Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[SickDays]"
+                      name="SickDays" />
+                    <outputColumn
+                      refId="Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[VacationDays]"
+                      dataType="i4"
+                      lineageId="Package\Flat File Extract\Union All.Outputs[Union All Output 1].Columns[VacationDays]"
+                      name="VacationDays" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Flat File Extract.Paths[Flat File Source Output]"
+              endId="Package\Flat File Extract\Union All.Inputs[Union All Input 1]"
+              name="Flat File Source Output"
+              startId="Package\Flat File Extract\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\OLE DB Extract"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BA247C39-30B7-42BF-BA47-4B7533164570}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="OLE DB Extract"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\OLE DB Extract\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TransactionID 
+,ProductID
+ ,TransactionDate
+ ,Quantity 
+,ActualCost 
+,ModifiedDate 
+FROM Production.TransactionHistory 
+WHERE Quantity &gt; 2</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OLE DB Extract\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-70FAUT8.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-70FAUT8.AdventureWorks2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionID]"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionID]"
+                      name="TransactionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionDate]"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]"
+                      name="TransactionDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualCost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActualCost]"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualCost]"
+                      name="ActualCost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionID]"
+                      dataType="i4"
+                      name="TransactionID" />
+                    <externalMetadataColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionDate]"
+                      dataType="dbTimeStamp"
+                      name="TransactionDate" />
+                    <externalMetadataColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActualCost]"
+                      dataType="cy"
+                      name="ActualCost" />
+                    <externalMetadataColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionID]"
+                      dataType="i4"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionID]"
+                      name="TransactionID" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionDate]"
+                      name="TransactionDate" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActualCost]"
+                      dataType="cy"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActualCost]"
+                      name="ActualCost" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\OLE DB Extract\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\OLE DB Extract\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\OLE DB Extract\Union All.Inputs[Union All Input 1].Columns[TransactionID]"
+                      cachedDataType="i4"
+                      cachedName="TransactionID"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[TransactionID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\OLE DB Extract\Union All.Inputs[Union All Input 1].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\OLE DB Extract\Union All.Inputs[Union All Input 1].Columns[TransactionDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TransactionDate"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[TransactionDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\OLE DB Extract\Union All.Inputs[Union All Input 1].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[Quantity]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\OLE DB Extract\Union All.Inputs[Union All Input 1].Columns[ActualCost]"
+                      cachedDataType="cy"
+                      cachedName="ActualCost"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualCost]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ActualCost]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\OLE DB Extract\Union All.Inputs[Union All Input 1].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\OLE DB Extract\Union All.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[TransactionID]"
+                      dataType="i4"
+                      lineageId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[TransactionID]"
+                      name="TransactionID" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[TransactionDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[TransactionDate]"
+                      name="TransactionDate" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ActualCost]"
+                      dataType="cy"
+                      lineageId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ActualCost]"
+                      name="ActualCost" />
+                    <outputColumn
+                      refId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\OLE DB Extract\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\OLE DB Extract.Paths[OLE DB Source Output]"
+              endId="Package\OLE DB Extract\Union All.Inputs[Union All Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\OLE DB Extract\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\OLE DB Extract"
+          TopLeft="264,149" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Excel Extract"
+          TopLeft="74,226" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Flat File Extract"
+          TopLeft="238,285" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\OLE DB Extract">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\OLE DB Extract\OLE DB Source"
+          TopLeft="212,238" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\OLE DB Extract\Union All"
+          TopLeft="289,331" />
+        <EdgeLayout
+          Id="Package\OLE DB Extract.Paths[OLE DB Source Output]"
+          TopLeft="287,280">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.5,51"
+              Start="0,0"
+              End="62.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="58.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.5,25.5"
+                    Point2="62.5,25.5"
+                    Point3="62.5,29.5" />
+                  <mssgle:LineSegment
+                    End="62.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\OLE DB Extract\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Excel Extract">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Excel Extract\Excel Source"
+          TopLeft="272,272" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Excel Extract\Union All"
+          TopLeft="341,381" />
+        <EdgeLayout
+          Id="Package\Excel Extract.Paths[Excel Source Output]"
+          TopLeft="341.5,314">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60,67"
+              Start="0,0"
+              End="60,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5"
+                    Point2="0,33.5"
+                    Point3="4,33.5" />
+                  <mssgle:LineSegment
+                    End="56,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56,33.5"
+                    Point2="60,33.5"
+                    Point3="60,37.5" />
+                  <mssgle:LineSegment
+                    End="60,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Excel Extract\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Flat File Extract">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Flat File Extract\Flat File Source"
+          TopLeft="176,81" />
+        <NodeLayout
+          Size="121,43"
+          Id="Package\Flat File Extract\Union All"
+          TopLeft="270,170" />
+        <EdgeLayout
+          Id="Package\Flat File Extract.Paths[Flat File Source Output]"
+          TopLeft="251.5,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,47"
+              Start="0,0"
+              End="79,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="75,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75,23.5"
+                    Point2="79,23.5"
+                    Point3="79,27.5" />
+                  <mssgle:LineSegment
+                    End="79,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
