@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>Personal Trainer SSIS Project</Name>
+    <LastWriteTime>2020-04-22T16:23:14.6762667Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+    <Salt>T/EH3T3D</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9d43ypuyLUG4NSkAqAZ12gAAAAACAAAAAAAQZgAAAAEAACAAAABW/LeSUZ0vfTyxRPQXvzkEi+gFZpy+89xe7JWRa07AXwAAAAAOgAAAAAIAACAAAABvjk+WncD2yPBJxgRIy20nyOU8sXq5Z9XQT5j5ti2vvjAAAABs5L5oX4w/6pXpcTSTwKlc5W2XqP5IEuxD4KiHdPp2i1f1GBMI0lZCgNaTWf34colAAAAA80jxyrIIwKBAt6HAb0cU+uAg9+oquOOeKIu0WseHoz3nCnCyL4oqiVrw5RqBvIV1YMzkyjsmZam9uPHUxQLdVg==</LastKnownProtectedHashedPassword>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>lesson14.dtsx</Name>
+      <LastWriteTime>2020-04-13T20:18:18.077609Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+      <Salt>NKdCR3Dw</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9d43ypuyLUG4NSkAqAZ12gAAAAACAAAAAAAQZgAAAAEAACAAAAC4L+7ZF0S6B+N4AI7yhZa5kb02NY2vW2jqvQrBGBA+3AAAAAAOgAAAAAIAACAAAACbf689idTiRQIgfVp2KUe3cBjFjFUDiGOzs2p4QW06CzAAAADjieggieLDgbhbigmMAFuwmyjGOMh5+zRgdddrWSqn2q2cHuoPIxHqHQJY8wq+9ZhAAAAAKhZjJEUwX8Ki5zfAB8FWLcOrtmLMBAwuNLWmI9UVowDcMZawG+67/Yi3aky0+z+ylar3MGHMRICHxtjZhKwSyQ==</LastKnownProtectedHashedPassword>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>lesson15.dtsx</Name>
+      <LastWriteTime>2020-04-13T20:28:28.4345448Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+      <Salt>GhH3emNg</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9d43ypuyLUG4NSkAqAZ12gAAAAACAAAAAAAQZgAAAAEAACAAAADUGYnn2UQSUVRCzJtiBrA6oWgbP1K+jrhmvGgdudbc0AAAAAAOgAAAAAIAACAAAAB+y2yqKROB4qs/hYd5gN5BKo+i7K+PtSklIA7csTUgTzAAAABrjxtNW1O8G2O3LoZ5uRZZw8z+rjybFVph4jnGCls66YqI/6pcsvzZlC7POgO05xxAAAAACWZbPt1UBd8NbNO6CsejbMpBCoyOqLEgryXiD2MFxB7KKxfd3gb+PNaEY9TdsYokQJrQXxsgK8jA95lTQotsKA==</LastKnownProtectedHashedPassword>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>lesson16.dtsx</Name>
+      <LastWriteTime>2020-04-22T16:23:14.6411364Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
+      <Salt>yIC/syNf</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9d43ypuyLUG4NSkAqAZ12gAAAAACAAAAAAAQZgAAAAEAACAAAABKWat5mT97F6iDpEBf5jEA0OsDiE8xy3q3HfzSNDhI/gAAAAAOgAAAAAIAACAAAABqUOEcpd964jD3XijVCI8/RIHp5kiVKPPcScppaARbpTAAAABXm33cXDSRy4opy1HJ4JJdzAxBse9TxXTL3wlly34uF7PNJeEpmqghs+u2LISYUVRAAAAATbDg8+DutUadldsm/xD3oor+UUf+11mnVXV8VkL0wX0n2xjAIppz3s6rfc1p+c0lSmCuLNZ43zfeHtBsVoWQ5w==</LastKnownProtectedHashedPassword>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>
